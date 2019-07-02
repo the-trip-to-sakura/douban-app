@@ -24,11 +24,11 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
   (response) => {
-    if (response.data.code >= 200 && response.data.code < 300) {
+    if (response.status >= 200 && response.status < 300) {
       return response.data
     }
 
-    return response
+    return response.data
   },
   error => Promise.reject(error)
 )
